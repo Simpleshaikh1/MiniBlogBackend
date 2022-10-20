@@ -12,7 +12,7 @@ const newsSchema = new mongoose.Schema({
     },
     coverImage: { 
         type: String,
-        default: URL
+        default: false
     },
     createdAt: {
         type: Date,
@@ -25,10 +25,10 @@ const newsSchema = new mongoose.Schema({
         type:Boolean,
         default:false
     },
-    newsSchema_id: [
+    authorSchema_id: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "News"
+            ref: "Author"
         }
     ]
 });
