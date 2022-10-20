@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require("express")
 const router = express.Router()
 const authMiddleware = require("../middleware/auth")
@@ -11,3 +12,6 @@ router.route("/editor/:id").patch(authMiddleware, updateOne).get(authMiddleware,
 
 module.exports= router
 
+=======
+
+>>>>>>> 884a16ce1072914eda946f69a759b85e3c27dfc9
