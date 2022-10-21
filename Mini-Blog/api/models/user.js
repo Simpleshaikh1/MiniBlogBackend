@@ -51,7 +51,7 @@ authorSchema.methods.matchPasswords = async function (password) {
 //create a method for jwt signed token
 authorSchema.methods.getSignedJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
+    expiresIn: process.env.JWT_LIFETIME,
   });
 };
 
