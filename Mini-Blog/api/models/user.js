@@ -28,7 +28,7 @@ const authorSchema = new mongoose.Schema({
   newsSchema_id: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "News",
+      ref: "Author",
     },
   ],
 });
