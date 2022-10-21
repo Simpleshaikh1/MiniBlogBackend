@@ -19,7 +19,8 @@ const authMiddleware = async (req, res, next) => {
 
   //check if token is present
   if (!token) {
-    return next(new ErrorResponse(`Not Authorized to Access this Route`, 401));
+    // return next(new ErrorResponse(`Not Authorized to Access this Route`, 401));
+    res.status(401).json({ msg: `Uanauthorized to access this route`})
   }
 
   //verify token using jwt
@@ -29,14 +30,19 @@ const authMiddleware = async (req, res, next) => {
 
     //create a conditional that check if the author is present
     if (!author) {
-      return next(new ErrorResponse("No Author found with this id:", 404));
+      // return next(new ErrorResponse("No Author found with this id:", 404));
+      res.status(401).json({ msg: `Token not found or Invalid`})
     }
 
     //assign the author to req.author
     req.author = author;
     next();
   } catch (error) {
-    return next(new ErrorResponse("Not authorized to accss this route", 404));
+    // return next(new ErrorResponse("Not authorized to accss this route", 404));
+    return next(
+
+      res.status(401).json({ msg: `Not Working `})
+    )
   }
 };
 

@@ -1,12 +1,12 @@
-// const express = require("express");
-// const router = express.Router();
-// const authMiddleware = require("../middleware/auth");
+const express = require("express");
+const router = express.Router();
+const authMiddleware = require("../middleware/auth");
 
-// const { updateOne, getOne } = require("../controller/profileController");
+const { updateOne, getAuthor } = require("../controller/profileController");
 
-// router
-//   .route("/editor/:id")
-//   .patch(authMiddleware, updateOne)
-//   .get(authMiddleware, getOne);
+router
+  .route("/editor/:id")
+  .patch(authMiddleware, updateOne)
+  .get(authMiddleware, getAuthor);
 
-// module.exports = router;
+module.exports = router;

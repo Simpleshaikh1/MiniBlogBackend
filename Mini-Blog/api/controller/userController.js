@@ -30,13 +30,16 @@ const register = async (req,res)=>{
 const login = async(req,res)=>{
     try {
         let { email, password } = req.body;
+        if( !email || !password ){
+            res.status(401).json({msg: 'please provide required details'})
+        }
         const author = await Author.findOne({ email });
         if(!author) {
             res.status(404).json({
                 message: "Failed login attempt"
             })
         }
-        let isMatch = await user.matchPasswords(password);
+        let isMatch = await author.matchPasswords(password);
         if(isMatch) {
             let profile = {
                 email: author.email,
@@ -44,7 +47,7 @@ const login = async(req,res)=>{
             };
             let result = {
                 author: profile,
-                token:sendToken(author,res)
+                token:sendToken(author, res)
             };
             return res.status(200).json({
                 ...result,
@@ -56,9 +59,7 @@ const login = async(req,res)=>{
             })
         }
     } catch(err) {
-        return res.status(500).json({
-            message: err.message,
-        })
+        console.log(err);
     }
     
 }
