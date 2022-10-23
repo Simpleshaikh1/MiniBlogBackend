@@ -28,7 +28,7 @@ const authorSchema = new mongoose.Schema({
   newsSchema_id: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Author",
+      ref: "News",
     },
   ],
 });
@@ -49,8 +49,8 @@ authorSchema.methods.matchPasswords = async function (password) {
 };
 
 //create a method for jwt signed token
-authorSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+authorSchema.methods.getSignedJwtToken = function (id) {
+    return jwt.sign({ id: id}, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_LIFETIME,
   });
 };
