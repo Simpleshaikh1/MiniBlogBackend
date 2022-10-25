@@ -18,7 +18,7 @@ const authorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profilePicture: {
+  image: {
     type: String,
   },
   isTrash: {
@@ -51,7 +51,7 @@ authorSchema.methods.matchPasswords = async function (password) {
 //create a method for jwt signed token
 authorSchema.methods.getSignedJwtToken = function (id) {
     return jwt.sign({ id: id}, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_LIFETIME,
+    expiresIn: process.env.JWT_LIFETIME
   });
 };
 
