@@ -1,6 +1,7 @@
 const Author = require("../models/user");
 const jwt = require("jsonwebtoken");
 
+
 const register = async (req, res) => {
   try {
     const authorTaken = await validateEmail(req.body.email);
@@ -69,7 +70,10 @@ const validateEmail = async (email) => {
 };
 
 
+
+
 module.exports = {
   register,
-  login,
+  login
+ 
 };
