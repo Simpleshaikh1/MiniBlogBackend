@@ -2,11 +2,15 @@ const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middleware/auth");
 
-const { updateOne, getAuthor } = require("../controller/profileController");
+const {
+  updateOne,
+  getAuthor,
+  upload,
+} = require("../controller/profileController");
 
 router
   .route("/editor/:id")
   .patch(authMiddleware, updateOne)
-  .get(authMiddleware, getAuthor);
-
+  .get(getAuthor)
+  
 module.exports = router;
