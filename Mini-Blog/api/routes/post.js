@@ -14,7 +14,7 @@ const {
 } = require("../controller/newsController");
 
 
-router.route("/").get(getAllNews).post(authMiddleware, createNews);
+router.route("/").get(getAllNews).post( createNews);
 
 router.route("/getAllSingleUserNews").get(getAllSingleUserNews);
 
