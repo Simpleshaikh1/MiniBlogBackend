@@ -44,7 +44,7 @@ const login = async (req, res) => {
       
       res.status(200).json({
         message: "Login success",
-        status: true,
+        authorId: author._id,
         data: token
       });
     } else {
