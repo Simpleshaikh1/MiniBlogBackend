@@ -30,6 +30,7 @@ app.use("/api/posts", postRoute);
 app.use("/api/profile", profileRoute);
 
 const PORT = process.env.PORT || 5000;
+//working
 
 const start = async () => {
   try {
