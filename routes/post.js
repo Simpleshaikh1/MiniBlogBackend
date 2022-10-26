@@ -18,7 +18,7 @@ router.route("/").get(getAllNews).post( authMiddleware, createNews);
 router
   .route("/:id")
   .get(getSingleNews)
-  .patch(authMiddleware, updateNews)
+  .put(authMiddleware, updateNews)
   .delete(authMiddleware, deleteNews);
 
 module.exports = router;
