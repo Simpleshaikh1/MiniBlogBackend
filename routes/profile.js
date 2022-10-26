@@ -9,7 +9,7 @@ const {
 
 router
   .route("/editor/:id")
-  .patch(authMiddleware, updateOne)
+  .put(authMiddleware, updateOne)
   .get(getAuthor)
   
 module.exports = router;
