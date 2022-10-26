@@ -1,5 +1,6 @@
 const News = require("../models/news");
 
+
 const getAllNews = async (req, res) => {
   try {
     const news = await News.find({});
@@ -19,7 +20,7 @@ const getAllNews = async (req, res) => {
 const createNews = async (req, res) => {
   const { title, body, id } = req.body;
   try {
-    const news = await await News.create({ title, body, authorSchema_id: id });
+    const news = await News.create({ title, body, authorSchema_id: id });
     res.status(200).json({
       status: "Success",
       data: {
@@ -30,15 +31,7 @@ const createNews = async (req, res) => {
     console.log(error);
   }
 };
-// issue
-const getAllSingleUserNews = async (req, res) => {
-  try {
-    const news = await News.findById(req.params.id);
-    res.status(200).json({ news, count: news.length });
-  } catch (error) {
-    console.log(error);
-  }
-};
+
 
 const updateNews = async (req, res) => {
   try {
@@ -87,7 +80,6 @@ const getSingleNews = async (req, res) => {
 
 module.exports = {
   getAllNews,
-  getAllSingleUserNews,
   createNews,
   updateNews,
   deleteNews,
