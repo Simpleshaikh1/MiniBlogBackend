@@ -5,7 +5,6 @@ const authMiddleware = require("../middleware/auth");
 const {
   updateOne,
   getAuthor,
-  upload,
 } = require("../controller/profileController");
 
 router
