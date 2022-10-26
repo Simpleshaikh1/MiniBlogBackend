@@ -12,7 +12,7 @@ const newsSchema = new mongoose.Schema({
     },
     coverImage: { 
         type: String,
-        default: true
+        
     },
     createdAt: {
         type: Date,
