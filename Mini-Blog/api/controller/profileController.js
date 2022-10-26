@@ -35,7 +35,7 @@ const getAuthor = async (req, res) => {
     const author = await Author.findById(id)
       .select("-password").select("-isTrash");
     if (author) {
-      return res.status(200).json(author);
+      return res.status(200).json({author});
     }
   } catch (err) {
     return res.status(500).json({
