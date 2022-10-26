@@ -75,5 +75,5 @@ const validateEmail = async (email) => {
 module.exports = {
   register,
   login,
- 
+
 };
